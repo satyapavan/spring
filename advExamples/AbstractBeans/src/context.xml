@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd ">
+
+	<bean id="animal" abstract="true">
+		<property name="speak" value="unknown" />
+		<property name="move" value="walk" />
+	</bean>
+
+	<bean id="cat" class="com.demo.spring.Cat" parent="animal">
+		<property name="speak" value="mew" />
+	</bean>
+</beans>
