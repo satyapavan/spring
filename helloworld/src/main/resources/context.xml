@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<bean id="message" class="com.demo.spring.Message" init-method="doInit"
+		lazy-init="true">
+
+		<constructor-arg value="Tea Break" index="0" />
+		<constructor-arg value="When is the Tea Break" index="1" />
+
+		<!-- <property name="message" value="When is the Lunch!! NEW!! " /> <property 
+			name="subject" value="When is the Lunch!! NEW!! Subject" /> -->
+
+	</bean>
+
+	<bean id="mail" class="com.demo.spring.Mail">
+		<property name="to" value="test@yahoo.com" />
+		<property name="from" value="test@gmail.com" />
+		<property name="message" ref="message" />
+	</bean>
+
+	<bean id="item1" class="com.demo.spring_v2.Item">
+		<property name="name" value="Rice" />
+		<property name="taste" value="super" />
+	</bean>
+	<bean id="item2" class="com.demo.spring_v2.Item">
+		<property name="name" value="Idly" />
+		<property name="taste" value="super" />
+	</bean>
+	<bean id="item3" class="com.demo.spring_v2.Item">
+		<property name="name" value="Sambar" />
+		<property name="taste" value="super" />
+	</bean>
+	<bean id="item4" class="com.demo.spring_v2.Item">
+		<property name="name" value="Upma" />
+		<property name="taste" value="super" />
+	</bean>
+	<bean id="lb1" class="com.demo.spring_v2.LunchBox">
+		<property name="items">
+			<list>
+				<ref bean="item1" />
+				<ref bean="item2" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="lb2" class="com.demo.spring_v2.LunchBox">
+		<property name="items">
+			<list>
+				<ref bean="item3" />
+				<ref bean="item4" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="s1" class="com.demo.spring_v2.Student">
+		<property name="name" value="Gupta" />
+		<property name="lunchbox" ref="lb1" />
+	</bean>
+
+	<bean id="s2" class="com.demo.spring_v2.Student">
+		<property name="name" value="Ankur" />
+		<property name="lunchbox" ref="lb2" />
+	</bean>
+
+	<bean id="t1" class="com.demo.spring_v2.Trainer">
+		<property name="name" value="Dhoni" />
+		<property name="students">
+			<list>
+				<ref bean="s1" />
+				<ref bean="s2" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="t2" class="com.demo.spring_v2.Trainer">
+		<property name="name" value="Raina" />
+		<property name="students">
+			<list>
+				<ref bean="s1" />
+				<ref bean="s2" />
+			</list>
+		</property>
+	</bean>
+	
+</beans>
