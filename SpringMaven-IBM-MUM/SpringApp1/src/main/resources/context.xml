@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<!-- <import resource="classpath:message-context.xml" /> -->
+	<bean class="com.demo.spring.Mail" init-method="doInit"
+		destroy-method="doDestroy" autowire="byType">
+		<property name="to" value="sbtalk@gmail.com" />
+		<property name="from" value="xyz@gmail.com" />
+		<!-- <property name="message" ref="msg" /> -->
+	</bean>
+	<!-- <bean id="message2" class="com.demo.spring.Message" scope="prototype"> 
+		<property name="header" value="When is the tea break?" /> <property name="body" 
+		value="After first Example" /> </bean> -->
+	<bean id="message" class="com.demo.spring.Message" >
+		<property name="header" value="${header}" />
+		<property name="body" value="${message}" />
+	</bean>
+
+</beans>

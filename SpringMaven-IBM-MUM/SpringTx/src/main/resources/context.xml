@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<context:component-scan base-package="com.demo.spring" />
+	<!-- <tx:annotation-driven transaction-manager="txManager" /> -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.SingleConnectionDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/spring" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
+	</bean>
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<!-- DAO Config -->
+	<bean id="dao" class="com.demo.spring.DaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<bean id="txManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- AOP Based Transaction config START -->
+	<!-- if you use @Transactional annotation you do not require this config -->
+	<!-- instead add <tx:annotation-driven/> -->
+
+	<!-- <tx:advice transaction-manager="txManager" id="txAdvice"> <tx:attributes> 
+		<tx:method name="insert" /> </tx:attributes> </tx:advice> <aop:config> <aop:pointcut 
+		expression="execution(* com..spring.Dao*.insert(..))" id="txPcut" /> <aop:advisor 
+		advice-ref="txAdvice" pointcut-ref="txPcut" /> </aop:config> -->
+	<!-- AOP Based Transaction config END -->
+	<!-- For Programatic tx configure TransactionTemplate -->
+	<bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+	<property name="transactionManager" ref="txManager"/>
+	</bean>
+</beans>
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="F:/ClassroomExamples_do_not_delete/spring/Spring_Adv_WF_Feb2013/Spring-REST-JSON/WebContent/WEB-INF/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="D:/development/spring-framework-4.0.0.RELEASE-dist/spring-framework-4.0.0.RELEASE/libs/spring-aop-4.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/development/spring-framework-4.0.0.RELEASE-dist/spring-framework-4.0.0.RELEASE/libs/spring-aspects-4.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/development/spring-framework-4.0.0.RELEASE-dist/spring-framework-4.0.0.RELEASE/libs/spring-beans-4.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/development/spring-framework-4.0.0.RELEASE-dist/spring-framework-4.0.0.RELEASE/libs/spring-context-4.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/development/spring-framework-4.0.0.RELEASE-dist/spring-framework-4.0.0.RELEASE/libs/spring-core-4.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/development/spring-framework-4.0.0.RELEASE-dist/spring-framework-4.0.0.RELEASE/libs/spring-expression-4.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/development/spring-framework-4.0.0.RELEASE-dist/spring-framework-4.0.0.RELEASE/libs/spring-framework-bom-4.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/development/spring-framework-4.0.0.RELEASE-dist/spring-framework-4.0.0.RELEASE/libs/spring-webmvc-4.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/shantanu/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="D:/development/spring-framework-4.0.0.RELEASE-dist/spring-framework-4.0.0.RELEASE/libs/spring-web-4.0.0.RELEASE.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+	<sec:global-method-security
+		secured-annotations="enabled" />
+	<sec:authentication-manager alias="ss">
+		<sec:authentication-provider>
+			<sec:user-service>
+				<sec:user name="shantanu" authorities="manager" password="welcome1" />
+				<sec:user name="pavan" authorities="Administrators" password="welcome1" />
+			</sec:user-service>
+		</sec:authentication-provider>
+
+	</sec:authentication-manager>
+	
+	<import resource="classpath:message-context.xml" />
+	<bean class="com.demo.spring.Mail" init-method="doInit"
+		destroy-method="doDestroy" autowire="byType">
+		<property name="to" value="sbtalk@gmail.com" />
+		<property name="from" value="xyz@gmail.com" />
+		<!-- <property name="message" ref="msg" /> -->
+	</bean>
+	<!-- <bean id="message2" class="com.demo.spring.Message" scope="prototype"> 
+		<property name="header" value="When is the tea break?" /> <property name="body" 
+		value="After first Example" /> </bean> -->
+	<bean id="message" class="com.demo.spring.Message">
+		<property name="header" value="${header}" />
+		<property name="body" value="${message}" />
+	</bean>
+
+</beans>

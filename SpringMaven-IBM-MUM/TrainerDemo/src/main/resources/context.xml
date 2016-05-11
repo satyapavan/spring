@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="tr" class="com.demo.spring.Trainer">
+		<property name="name" value="Scott" />
+		<property name="participants">
+			<list>
+				<ref bean="p1" />
+				<ref bean="p2" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="p1" class="com.demo.spring.Participant">
+		<property name="name" value="amit" />
+		<property name="lunchBox" ref="lunchBox" />
+	</bean>
+	<bean id="p2" class="com.demo.spring.Participant">
+		<property name="name" value="Ankur" />
+		<property name="lunchBox" ref="lunchBox2" />
+	</bean>
+	<bean id="lunchBox" class="com.demo.spring.LunchBox">
+		<property name="items">
+			<list>
+				<ref bean="item1" />
+				<ref bean="item2" />
+			</list>
+		</property>
+
+	</bean>
+	<bean id="lunchBox2" class="com.demo.spring.LunchBox">
+		<property name="items">
+			<list>
+				<ref bean="item1" />
+				<ref bean="item2" />
+			</list>
+		</property>
+
+	</bean>
+	<bean id="item1" class="com.demo.spring.Item">
+		<property name="name" value="${item1.name}" />
+		<property name="taste" value="${item1.taste}" />
+	</bean>
+	<bean id="item2" class="com.demo.spring.Item">
+		<property name="name" value="${item2.name}" />
+		<property name="taste" value="${item2.taste}" />
+	</bean>
+
+	<bean id="resource"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>items.properties</value>
+				<value>items2.properties</value>
+			</list>
+		</property>
+
+	</bean>
+</beans>
